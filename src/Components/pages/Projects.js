@@ -8,9 +8,11 @@ import ProjectCard from "../project/ProjectCard"
 
 import styles from './Projects.module.css'
 import { useState, useEffect } from "react"
+import Loading from "../layout/Loading"
 
 function Projects (){
     const [projects, setProjects] = useState([])
+    const [removeLoading, setRemoveLoading] = useState(false)
 
     const location = useLocation()
 
@@ -20,8 +22,9 @@ function Projects (){
     }
 
     useEffect(()=>{
-
-       fetch('http://localhost:5000/projects',{
+        setTimeout(
+        ()=>{
+        fetch('http://localhost:5000/projects',{
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -31,8 +34,11 @@ function Projects (){
        .then((data) =>{
         console.log(data)
         setProjects(data)
+        setRemoveLoading(true)
        })
        .catch((err) => console.log(err))
+            
+        }, 300)
     },[])
 
 
@@ -54,7 +60,10 @@ function Projects (){
                     key={project.id}
                     
                     />
-                )
+                ))}
+                {!removeLoading && <Loading/>}
+                {removeLoading && projects.length === 0 && (
+                    <p>Não há projetos cadastrados!</p>
                 )}
             </Container>
         </div>
