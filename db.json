@@ -7,8 +7,15 @@
         "id": "3",
         "name": "Design"
       },
-      "cost": 0,
-      "services": [],
+      "cost": 100,
+      "services": [
+        {
+          "name": "teste",
+          "cost": "100",
+          "description": "um ai",
+          "id": "b57bfc2c-c442-4330-9d67-e5d7f23e22fa"
+        }
+      ],
       "id": 1
     },
     {
