@@ -37,8 +37,15 @@
         "id": "4",
         "name": "Planejamento"
       },
-      "cost": 0,
-      "services": [],
+      "cost": 200,
+      "services": [
+        {
+          "name": "ssdfs",
+          "cost": "200",
+          "description": "sass",
+          "id": "25c3157e-a15f-493d-89dc-223179c9ba93"
+        }
+      ],
       "id": 3
     }
   ],
